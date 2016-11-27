@@ -6,10 +6,14 @@
   when: ansible_os_family == "RedHat"
   tags: dnsmasq,installation
 
+- debug: var=ansible_os_family
+
 - name: Dnsmasq package
   apt: name=dnsmasq state=present
   # when: ansible_os_family == "Debian"
   tags: dnsmasq,installation
+
+- debug: var=ansible_os_family
 
 - name: Stop Dnsmasq
   service: name=dnsmasq state=stopped
