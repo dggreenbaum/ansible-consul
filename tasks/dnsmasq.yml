@@ -10,7 +10,7 @@
 
 - name: Dnsmasq package
   apt: name=dnsmasq state=present
-  # when: ansible_os_family == "Debian"
+  when: ansible_os_family == "Debian"
   tags: dnsmasq,installation
 
 - debug: var=ansible_os_family
