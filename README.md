@@ -51,7 +51,7 @@ inventory file (see below):
 | `consul_https_bind_address` | *0.0.0.0* | HTTPS API bind address |
 | `consul_rpc_bind_address` | *0.0.0.0* | RPC bind address |
 | `consul_node_name` | `{{ inventory_hostname_short }}` | Node name (should not include dots) |
-| `consul_recursors` | Empty list | List of upstream DNS servers — see [recursors](https://www.consul.io/docs/agent/options.html#recursors) | 
+| `consul_recursors` | Empty list | List of upstream DNS servers — see [recursors](https://www.consul.io/docs/agent/options.html#recursors) |
 | `consul_bind_address` | dynamic from hosts inventory | The interface address to bind to
 | `consul_dnsmasq_enable` | *false* | Whether to install and configure DNS API forwarding on port 53 using dnsmasq |
 | `consul_iptables_enable` | *false* | Whether to enable iptables rules for DNS forwarding to Consul |
@@ -75,6 +75,7 @@ inventory file (see below):
 | `consul_verify_incoming` | *false* | Verify incoming connections, can be overridden with `CONSUL_VERIFY_INCOMING` environment variable |
 | `consul_verify_outgoing` | *true* | Verify outgoing connections, can be overridden with `CONSUL_VERIFY_OUTGOING` environment variable |
 | `consul_verify_server_hostname` | *false* | Verify server hostname, can be overridden with `CONSUL_VERIFY_SERVER_HOSTNAME` environment variable |
+| `consul_https_port` | *8443* | The port the Consul HTTP API will be available on over TLS |
 
 ### Host Inventory Variable
 
@@ -92,7 +93,7 @@ Here is an example of how the hosts inventory could be defined for a simple
 cluster of 3 servers:
 
 ```
-consul1.local consul_node_role=bootstrap 
+consul1.local consul_node_role=bootstrap
 consul2.local consul_node_role=server
 consul3.local consul_node_role=server
 ```
